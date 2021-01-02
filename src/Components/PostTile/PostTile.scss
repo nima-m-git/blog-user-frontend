@@ -1,0 +1,56 @@
+.post-tile {
+  border: 0.5px solid rgba(128, 128, 128, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  background: whitesmoke;
+  position: relative;
+
+  .secondary-bar {
+    font-size: 0.9em;
+    color: rgba(104, 99, 99, 0.945);
+    font-size: 0.8em;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dates {
+    margin-top: 5px;
+    font-style: italic;
+    font-size: 0.75em;
+  }
+}
+
+.title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.content-short {
+  color: rgba(124, 124, 124, 0.945);
+  margin: 20px 0;
+}
+
+.author {
+  font-size: 0.8em;
+  font-weight: 500;
+  color: rgba(58, 58, 58, 0.845);
+  margin: 5px 0;
+}
+
+.published {
+  font-weight: 600;
+}
+
+.comments {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,54 @@
+.switch {
+  border: none;
+  width: 130px;
+  height: 30px;
+  margin: 0 0.5em;
+  padding: 0.4em 0.5em;
+  font-size: 14px;
+  border-radius: 50px;
+  font-weight: 500;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: 0.5s background;
+
+  box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
+}
+
+.switch.on {
+  background: rgb(85, 122, 226);
+  flex-direction: row;
+
+  &:hover {
+    background: rgb(64, 93, 173);
+  }
+}
+
+.switch.off {
+  background: rgb(80, 189, 80);
+  flex-direction: row-reverse;
+
+  &:hover {
+    background: rgb(67, 158, 67);
+  }
+}
+
+.switch button {
+  border-radius: 500px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  z-index: 1;
+
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.toggle-text {
+  margin: 0.2em;
+  white-space: nowrap;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  flex: 1;
+  text-align: center;
+}
