@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./PostTile.scss";
 
 const Post = ({
@@ -14,9 +15,9 @@ const Post = ({
 }) => {
   return (
     <div className="post-tile">
-      <a href="">
+      <Link to={`/posts/${_id}`}>
         <h2 className="title">{title}</h2>
-      </a>
+      </Link>
       <h3 className="author">By {author.username}</h3>
       <p className="content-short">{content.slice(0, 50)}...</p>
       <div className="secondary-bar">
