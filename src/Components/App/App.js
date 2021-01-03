@@ -1,25 +1,61 @@
 import { Link, Route, Switch } from "react-router-dom";
+import { useState } from "react";
 
 import "./App.scss";
-import { Menu } from "../index";
+import { Menu, Login, Signup, LoginBar } from "../index";
 import PostPage from "../PostPage/PostPage";
 
 function App() {
+  const [token, setToken] = useState(null);
+  const [username, setUsername] = useState(null);
+  const [errors, setErrors] = useState([]);
+  const [message, setMessage] = useState(null);
+
   return (
-    <div>
+    <div className="app">
       <Link to="/">
         <header>
           <h1>Blog Home</h1>
         </header>
       </Link>
+      <LoginBar {...{ token }} {...{ setToken }} />
+
       <Switch>
         <Route path="/" exact>
-          <Menu />
+          <Menu {...{ setErrors }} />
         </Route>
         <Route path="/posts/:postId">
-          <PostPage />
+          <PostPage {...{ token }} {...{ setErrors }} {...{ setMessage }} />
+        </Route>
+        <Route path="/login">
+          <Login {...{ setToken }} {...{ setUsername }} />
+        </Route>
+        <Route path="/signup">
+          <Signup />
         </Route>
       </Switch>
+
+      <div className="message-container">
+        {errors?.length > 0 && (
+          <div className="errors">
+            <h4 className="err-title">Errors: </h4>
+            {errors.map((error, i) => (
+              <div key={i}>- {error}</div>
+            ))}
+            <div className="ok-btn">
+              <button onClick={() => setErrors([])}>OK</button>
+            </div>
+          </div>
+        )}
+        {message?.length > 0 && (
+          <div className="message">
+            {message}
+            <div className="ok-btn">
+              <button onClick={() => setMessage(null)}>OK</button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
