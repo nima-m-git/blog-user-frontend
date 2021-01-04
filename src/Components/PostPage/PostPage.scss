@@ -12,6 +12,14 @@
 }
 
 .post {
+  .content {
+    padding: 0 0.6em;
+  }
+
+  .author {
+    padding: 0 0.5em;
+  }
+
   &::after {
     content: " ";
     display: block;
@@ -53,6 +61,26 @@
     flex-direction: column;
     width: fit-content;
   }
+
+  button {
+    // create reusable submit btn
+    padding: 12px 15px;
+    margin: 5px;
+    width: fit-content;
+    align-self: center;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    background: rgb(74, 174, 255);
+    color: white;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    border: 0.5px solid rgba(153, 153, 153, 0.315);
+
+    &:hover {
+      background: rgb(72, 120, 224);
+    }
+  }
 }
 
 textarea {
@@ -60,22 +88,30 @@ textarea {
   border: 0.5px solid rgba(128, 128, 128, 0.3);
 }
 
-button {
-  // create reusable submit btn
-  padding: 12px 15px;
-  margin: 5px;
-  width: fit-content;
-  align-self: center;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 10px;
-  border: none;
-  background: rgb(74, 174, 255);
-  color: white;
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  border: 0.5px solid rgba(153, 153, 153, 0.315);
+.login-links {
+  margin: 1.8em 0;
+}
 
-  &:hover {
-    background: rgb(72, 120, 224);
+.comment {
+  border-radius: 15px;
+  box-shadow: 0 0 10px 1px rgba(165, 126, 42, 0.1);
+  background: rgba(233, 206, 156, 0.103);
+  margin: 1.3em 0.8em;
+  padding: 0.3em 1.2em;
+  min-width: 300px;
+  max-width: 50%;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.comment-content {
+  margin: 0.8em 0;
+}
+
+.footer {
+  .author {
+    font-size: 12px;
   }
 }

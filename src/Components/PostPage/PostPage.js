@@ -18,7 +18,6 @@ const PostPage = ({ token, setErrors, setMessage }) => {
           setPost(result.post);
           setComments(result?.comments);
           setIsLoaded(true);
-          //   console.log(comments);
         },
         (error) => {
           setErrors([error]);
@@ -49,7 +48,7 @@ const PostPage = ({ token, setErrors, setMessage }) => {
         </div>
 
         <div className="comments-footer">
-          <p>Comments ({post.comment?.length || 0})</p>
+          <p>Comments ({comments?.length || 0})</p>
           {token ? (
             <div>
               <CommentBox
@@ -61,7 +60,7 @@ const PostPage = ({ token, setErrors, setMessage }) => {
               />
             </div>
           ) : (
-            <div>
+            <div className="login-links">
               <Link className="link" to="/login">
                 Login
               </Link>{" "}
@@ -73,14 +72,16 @@ const PostPage = ({ token, setErrors, setMessage }) => {
             </div>
           )}
 
-          <div className="comments">
+          <div className="commentsx">
             {comments &&
               comments.map(
                 ({ content, author: { username }, timeCreated }, i) => (
                   <div className="comment" key={i}>
-                    <p>{content}</p>
-                    <p>{username}</p>
-                    <p>{timeCreated}</p>
+                    <div className="comment-content">{content}</div>
+                    <div className="secondary-bar footer">
+                      <div className="author">By: {username}</div>
+                      <div className="dates">Posted {timeCreated}</div>
+                    </div>
                   </div>
                 )
               )}
