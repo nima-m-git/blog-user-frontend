@@ -5,8 +5,10 @@ import "./LoginBar.scss";
 const LoginBar = ({ token, setToken }) => (
   <nav className="login-bar">
     {token ? (
-      <div className="link" onClick={() => setToken(null)}>
-        Logout
+      <div className="login-links">
+        <div className="link" onClick={() => setToken(null)}>
+          Logout
+        </div>
       </div>
     ) : (
       <div className="login-links">

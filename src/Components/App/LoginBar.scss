@@ -1,17 +1,23 @@
 .login-bar {
   text-align: end;
 
-  .link {
-    margin: 0 0.5em;
+  .login-links {
+    height: 55px;
+    display: flex;
+    justify-content: flex-end;
   }
-}
 
-.link {
-  cursor: pointer;
-  text-decoration: none;
-  color: rgb(56, 53, 53);
+  .link {
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(56, 53, 53);
+    transition: font-size 0.3s;
+    width: 70px;
+    font-size: 16px;
 
-  &:hover {
-    color: rgba(46, 46, 46, 0.705);
+    &:hover {
+      color: rgba(46, 46, 46, 0.705);
+      font-size: 1.1em;
+    }
   }
 }

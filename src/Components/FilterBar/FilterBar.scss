@@ -1,11 +1,9 @@
 .filter-bar {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 5px;
-}
+  display: flex;
 
-@media (min-width: 768px) {
-  .filter-bar {
-    grid-template-columns: repeat(4, 1fr);
+  select {
+    padding-right: 1em;
+
+    text-align: center;
   }
 }

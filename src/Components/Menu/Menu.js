@@ -16,9 +16,6 @@ const Menu = ({ token, setErrors }) => {
         case "timeCreated" || "timeLastEdited":
           filtered = filtered.sort((a, b) => (a[choice] > b[choice] ? 1 : -1));
           break;
-        // case "timeLastEdited":
-        //   filtered = filtered.sort((a, b) => (a[choice] > b[choice] ? 1 : -1));
-        //   break;
         case "comments":
           filtered = filtered.sort((a, b) =>
             a[choice].length > b[choice].length ? 1 : -1
@@ -67,7 +64,6 @@ const Menu = ({ token, setErrors }) => {
   } else {
     return (
       <div className="container">
-        {console.log("re")}
         <div className="head-bar">
           <FilterBar {...{ setFilter }} {...{ posts }} />
         </div>
