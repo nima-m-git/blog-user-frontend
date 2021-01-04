@@ -7,7 +7,7 @@ import Button from "./Button/Button";
 import PostPage from "./PostPage/PostPage";
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
-import CommentBox from "./Comments/CommentBox";
+import CommentBox from "./PostPage/CommentBox";
 
 export {
   App,

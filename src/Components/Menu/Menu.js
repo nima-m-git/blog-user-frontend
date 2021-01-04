@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { PostTile, FilterBar } from "../index";
 import "./Menu.scss";
 
-const Menu = ({ token, username, setErrors }) => {
+const Menu = ({ token, setErrors }) => {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,7 +13,7 @@ const Menu = ({ token, username, setErrors }) => {
     "content-type": "application/json",
   };
 
-  const getPosts = () => {
+  const getPosts = useCallback(() => {
     fetch(`${process.env.REACT_APP_BE_URL}/posts`)
       .then((res) => res.json())
       .then(
@@ -27,11 +27,11 @@ const Menu = ({ token, username, setErrors }) => {
           setIsLoaded(true);
         }
       );
-  };
+  }, [setErrors]);
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [getPosts]);
 
   if (!isLoaded) {
     return <div className="loading">Loading...</div>;
@@ -40,11 +40,7 @@ const Menu = ({ token, username, setErrors }) => {
       <div className="container">
         <div className="head-bar">
           <button className="new-btn">New Post</button>
-          <FilterBar
-            {...{ setFilteredPosts }}
-            {...{ posts }}
-            {...{ username }}
-          />
+          <FilterBar {...{ setFilteredPosts }} {...{ posts }} />
         </div>
 
         <div className="posts-container">

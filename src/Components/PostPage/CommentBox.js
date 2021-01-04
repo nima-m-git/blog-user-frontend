@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CommentBox = ({ post, token, refresh, setMessage, setErrors }) => {
+const CommentBox = ({ postId, token, refresh, setMessage, setErrors }) => {
   const [comment, setComment] = useState("");
 
   const headers = {
@@ -23,13 +23,15 @@ const CommentBox = ({ post, token, refresh, setMessage, setErrors }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`${process.env.REACT_APP_BE_URL}/posts/${post._id}`, {
+    fetch(`${process.env.REACT_APP_BE_URL}/posts/${postId}`, {
       method: "POST",
-      body: JSON.stringify(comment),
+      body: JSON.stringify({ content: comment }),
       headers,
     })
       .then((res) => res.json())
       .then((result) => handleResult(result));
+
+    setComment("");
   };
 
   return (
@@ -39,9 +41,12 @@ const CommentBox = ({ post, token, refresh, setMessage, setErrors }) => {
         <textarea
           onChange={(e) => setComment(e.target.value)}
           value={comment}
+          rows={5}
+          cols={40}
+          maxLength={300}
         />
       </label>
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };

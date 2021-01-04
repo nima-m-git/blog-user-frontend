@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./PostTile.scss";
 
 const Post = ({
@@ -14,29 +14,25 @@ const Post = ({
   },
 }) => {
   return (
-    <div className="post-tile">
-      <Link to={`/posts/${_id}`}>
+    <NavLink to={`/posts/${_id}`}>
+      <div className="post-tile">
         <h2 className="title">{title}</h2>
-      </Link>
-      <h3 className="author">By {author.username}</h3>
-      <p className="content-short">{content.slice(0, 50)}...</p>
-      <div className="secondary-bar">
-        <div className="published">
-          {published ? "Published" : "Unpublished"}
+        <h3 className="author">By {author.username}</h3>
+        <p className="content-short">{content.slice(0, 50)}...</p>
+        <div className="secondary-bar">
+          <div className="published">
+            {published ? "Published" : "Unpublished"}
+          </div>
+          <div className="comments">Comments ({comment?.length || 0})</div>
         </div>
-        <a
-          href={`${process.env.REACT_APP_BE_URL}/posts/${_id}`}
-          target="blank"
-          className="comments"
-        >
-          Comments ({comment?.length || 0})
-        </a>
+        <div className="dates secondary-bar">
+          <div className="date">Added: {timeCreated?.slice(0, 10)}</div>
+          <div className="date">
+            Last Edited: {timeLastEdited?.slice(0, 10)}
+          </div>
+        </div>
       </div>
-      <div className="dates secondary-bar">
-        <div>Added: {timeCreated?.slice(0, 10)}</div>
-        <div>Last Edited: {timeLastEdited?.slice(0, 10)}</div>
-      </div>
-    </div>
+    </NavLink>
   );
 };
 

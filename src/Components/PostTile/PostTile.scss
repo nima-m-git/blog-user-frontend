@@ -5,6 +5,7 @@
   padding: 20px;
   background: whitesmoke;
   position: relative;
+  transition: 0.2s scale;
 
   .secondary-bar {
     font-size: 0.9em;
@@ -18,6 +19,10 @@
     margin-top: 5px;
     font-style: italic;
     font-size: 0.75em;
+  }
+
+  &:hover {
+    scale: 1.05;
   }
 }
 
@@ -34,6 +39,7 @@
 .content-short {
   color: rgba(124, 124, 124, 0.945);
   margin: 20px 0;
+  height: 3em;
 }
 
 .author {
@@ -53,4 +59,8 @@
   &:hover {
     text-decoration: underline;
   }
+}
+
+a {
+  text-decoration: none;
 }

@@ -25,7 +25,12 @@ function App() {
           <Menu {...{ setErrors }} />
         </Route>
         <Route path="/posts/:postId">
-          <PostPage {...{ token }} {...{ setErrors }} {...{ setMessage }} />
+          <PostPage
+            {...{ token }}
+            {...{ setErrors }}
+            {...{ setMessage }}
+            {...{ username }}
+          />
         </Route>
         <Route path="/login">
           <Login {...{ setToken }} {...{ setUsername }} />
