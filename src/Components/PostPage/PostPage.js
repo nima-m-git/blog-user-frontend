@@ -7,7 +7,6 @@ import "./PostPage.scss";
 const PostPage = ({ token, setErrors, setMessage }) => {
   const { postId } = useParams();
   const [post, setPost] = useState();
-  const [comments, setComments] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   const getPost = useCallback(() => {
@@ -16,7 +15,6 @@ const PostPage = ({ token, setErrors, setMessage }) => {
       .then(
         (result) => {
           setPost(result.post);
-          setComments(result?.comments);
           setIsLoaded(true);
         },
         (error) => {
@@ -48,7 +46,7 @@ const PostPage = ({ token, setErrors, setMessage }) => {
         </div>
 
         <div className="comments-footer">
-          <p>Comments ({comments?.length || 0})</p>
+          <p>Comments ({post?.comments?.length || 0})</p>
           {token ? (
             <div>
               <CommentBox
@@ -73,8 +71,8 @@ const PostPage = ({ token, setErrors, setMessage }) => {
           )}
 
           <div className="commentsx">
-            {comments &&
-              comments.map(
+            {post?.comments &&
+              post.comments.map(
                 ({ content, author: { username }, timeCreated }, i) => (
                   <div className="comment" key={i}>
                     <div className="comment-content">{content}</div>

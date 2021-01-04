@@ -6,7 +6,7 @@ const Post = ({
     title,
     content,
     author,
-    comment,
+    comments,
     published,
     _id,
     timeCreated,
@@ -23,7 +23,7 @@ const Post = ({
           <div className="published">
             {published ? "Published" : "Unpublished"}
           </div>
-          <div className="comments">Comments ({comment?.length || 0})</div>
+          <div className="comments">Comments ({comments?.length || 0})</div>
         </div>
         <div className="dates secondary-bar">
           <div className="date">Added: {timeCreated?.slice(0, 10)}</div>

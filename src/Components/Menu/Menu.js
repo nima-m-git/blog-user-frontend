@@ -5,8 +5,37 @@ import "./Menu.scss";
 
 const Menu = ({ token, setErrors }) => {
   const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [sortedPosts, setSortedPosts] = useState(posts);
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const setFilter = useCallback(
+    (choice, order) => {
+      let filtered = [...posts];
+
+      switch (choice) {
+        case "timeCreated" || "timeLastEdited":
+          filtered = filtered.sort((a, b) => (a[choice] > b[choice] ? 1 : -1));
+          break;
+        // case "timeLastEdited":
+        //   filtered = filtered.sort((a, b) => (a[choice] > b[choice] ? 1 : -1));
+        //   break;
+        case "comments":
+          filtered = filtered.sort((a, b) =>
+            a[choice].length > b[choice].length ? 1 : -1
+          );
+          break;
+        default:
+          break;
+      }
+
+      if (order === "Descending") {
+        filtered = filtered.reverse();
+      }
+
+      setSortedPosts(filtered);
+    },
+    [posts]
+  );
 
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -38,18 +67,18 @@ const Menu = ({ token, setErrors }) => {
   } else {
     return (
       <div className="container">
+        {console.log("re")}
         <div className="head-bar">
-          <button className="new-btn">New Post</button>
-          <FilterBar {...{ setFilteredPosts }} {...{ posts }} />
+          <FilterBar {...{ setFilter }} {...{ posts }} />
         </div>
 
         <div className="posts-container">
-          {filteredPosts.map((post) => (
+          {sortedPosts.map((post, i) => (
             <PostTile
               {...{ post }}
               {...{ headers }}
               {...{ getPosts }}
-              key={post._id}
+              key={post._id + i}
             />
           ))}
         </div>
