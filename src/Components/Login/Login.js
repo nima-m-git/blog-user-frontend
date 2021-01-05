@@ -5,7 +5,7 @@ import "./Login.scss";
 const Login = ({ setToken, setUsername }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [errors, setErrors] = useState([]);
   const history = useHistory();
 
   const checkCredentials = (e) => {
@@ -25,7 +25,7 @@ const Login = ({ setToken, setUsername }) => {
           history.push("/");
         }
         if (result.message) {
-          setError(result.message.message);
+          setErrors([result.message.message]);
         }
       });
   };
@@ -33,7 +33,9 @@ const Login = ({ setToken, setUsername }) => {
   return (
     <form className="login-form" onSubmit={checkCredentials}>
       <h2 className="form-title">Login</h2>
-      {error && <div className="error">- {error}</div>}
+      {errors.map((error) => (
+        <div className="error">- {error}</div>
+      ))}
       <label>
         Email:
         <input
