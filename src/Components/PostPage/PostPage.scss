@@ -66,6 +66,10 @@
     width: fit-content;
   }
 
+  textarea {
+    outline: none;
+  }
+
   button {
     // create reusable submit btn
     padding: 12px 15px;

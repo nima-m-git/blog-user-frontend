@@ -20,9 +20,6 @@ const Post = ({
         <h3 className="author">By {author.username}</h3>
         <p className="content-short">{content.slice(0, 50)}...</p>
         <div className="secondary-bar">
-          <div className="published">
-            {published ? "Published" : "Unpublished"}
-          </div>
           <div className="comments">Comments ({comments?.length || 0})</div>
         </div>
         <div className="dates secondary-bar">

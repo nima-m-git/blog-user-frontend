@@ -44,7 +44,7 @@ const Menu = ({ token, setErrors }) => {
       .then((res) => res.json())
       .then(
         (result) => {
-          setPosts(result.posts);
+          setPosts(result.posts.filter((post) => post.published));
           setIsLoaded(true);
         },
         (error) => {
