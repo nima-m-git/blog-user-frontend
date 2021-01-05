@@ -24,17 +24,17 @@ const Login = ({ setToken, setUsername }) => {
           setUsername(result.username);
           history.push("/");
         }
-        if (result.message) {
-          setErrors([result.message.message]);
-        }
+        setErrors([result?.message]);
       });
   };
 
   return (
     <form className="login-form" onSubmit={checkCredentials}>
       <h2 className="form-title">Login</h2>
-      {errors.map((error) => (
-        <div className="error">- {error}</div>
+      {errors.map((error, i) => (
+        <div className="error" key={i}>
+          - {error}
+        </div>
       ))}
       <label>
         Email:
