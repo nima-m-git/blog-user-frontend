@@ -41,6 +41,10 @@ const Menu = ({ token, setErrors }) => {
 
   const getPosts = useCallback(() => {
     fetch(`${process.env.REACT_APP_BE_URL}/posts`)
+      .then((res) => {
+        console.log(res);
+        return res;
+      })
       .then((res) => res.json())
       .then(
         (result) => {
