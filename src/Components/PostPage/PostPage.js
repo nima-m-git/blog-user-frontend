@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { CommentBox } from "../index";
+import { CommentBox } from "Components/index";
 import "./PostPage.scss";
 
 const PostPage = ({ token, setErrors, setMessage }) => {

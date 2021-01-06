@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { PostTile, FilterBar } from "../index";
+import { PostTile, FilterBar } from "Components/index";
 import "./Menu.scss";
 
 const Menu = ({ token, setErrors }) => {

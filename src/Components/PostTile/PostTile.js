@@ -2,16 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./PostTile.scss";
 
 const Post = ({
-  post: {
-    title,
-    content,
-    author,
-    comments,
-    published,
-    _id,
-    timeCreated,
-    timeLastEdited,
-  },
+  post: { title, content, author, comments, _id, timeCreated, timeLastEdited },
 }) => {
   return (
     <NavLink to={`/posts/${_id}`}>
