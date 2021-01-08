@@ -1,18 +1,10 @@
 .app {
-  margin: 0 auto;
-  padding: 1em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 1em;
-  padding: 0.5em;
-  color: rgba(0, 0, 0, 0.8);
-  font-weight: 700;
-  font-size: 38px;
-  background: rgba(221, 236, 225, 0.548);
-  box-shadow: 0 0 10px 0 rgba(158, 151, 151, 0.2);
+.container {
+  margin: 0 auto;
+  padding: 1em;
 }
 
 button {

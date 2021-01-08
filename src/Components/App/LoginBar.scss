@@ -1,23 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5em;
+  padding: 1.2em;
+  background: rgba(146, 170, 135, 0.548);
+  box-shadow: 0 0 10px 1px rgba(158, 151, 151, 0.4);
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 38px;
+}
+
+h1,
+.link {
+  color: rgb(61, 57, 57);
+}
+
 .login-bar {
   text-align: end;
-
-  .login-links {
-    height: 55px;
-    display: flex;
-    justify-content: flex-end;
-  }
 
   .link {
     cursor: pointer;
     text-decoration: none;
-    color: rgb(56, 53, 53);
     transition: font-size 0.3s;
     width: 70px;
-    font-size: 16px;
+    font-size: 18px;
+    margin: 0.8em;
 
     &:hover {
-      color: rgba(46, 46, 46, 0.705);
-      font-size: 1.1em;
+      color: rgb(150, 150, 150);
     }
   }
 }
