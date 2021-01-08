@@ -12,6 +12,14 @@ const LoginBar = ({ token, setToken }) => (
       </div>
     ) : (
       <div className="login-links">
+        <a
+          href={process.env.REACT_APP_ADMIN_URL}
+          className="link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Admin
+        </a>
         <Link className="link" to="/login">
           Login
         </Link>
