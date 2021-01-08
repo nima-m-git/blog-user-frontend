@@ -10,6 +10,7 @@ const CommentBox = ({ post, token, refresh, setMessage, setErrors }) => {
 
   const handleResult = (result) => {
     setMessage(result?.message);
+    // Set error(s) in array
     setErrors(
       result?.errors
         ? result.errors.map((err) => err.msg)

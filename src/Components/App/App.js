@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import "./App.scss";
 import { Menu, Login, Signup, LoginBar } from "../index";
-import PostPage from "../PostPage/PostPage";
+import PostPage from "Components/PostPage/PostPage";
 
 function App() {
   const [token, setToken] = useState(null);

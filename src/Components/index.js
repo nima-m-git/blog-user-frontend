@@ -9,6 +9,9 @@ import Signup from "./Login/Signup";
 import Login from "./Login/Login";
 import CommentBox from "./PostPage/CommentBox";
 
+// Animations
+import LoaderSpinner from "./Animations/LoaderSpinner/LoaderSpinner";
+
 export {
   App,
   LoginBar,
@@ -20,4 +23,5 @@ export {
   Signup,
   Login,
   CommentBox,
+  LoaderSpinner,
 };

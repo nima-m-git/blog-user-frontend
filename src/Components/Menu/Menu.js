@@ -3,6 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 import { PostTile, FilterBar } from "Components/index";
 import "./Menu.scss";
 
+import { LoaderSpinner } from "Components/index";
+
 const Menu = ({ token, setErrors }) => {
   const [posts, setPosts] = useState([]);
   const [sortedPosts, setSortedPosts] = useState(posts);
@@ -63,28 +65,30 @@ const Menu = ({ token, setErrors }) => {
     getPosts();
   }, [getPosts]);
 
-  if (!isLoaded) {
-    return <div className="loading">Loading...</div>;
-  } else {
-    return (
-      <div className="container">
-        <div className="head-bar">
-          <FilterBar {...{ setFilter }} {...{ posts }} />
-        </div>
+  return (
+    <div>
+      {isLoaded ? (
+        <div className="container">
+          <div className="head-bar">
+            <FilterBar {...{ setFilter }} {...{ posts }} />
+          </div>
 
-        <div className="posts-container">
-          {sortedPosts.map((post, i) => (
-            <PostTile
-              {...{ post }}
-              {...{ headers }}
-              {...{ getPosts }}
-              key={post._id + i}
-            />
-          ))}
+          <div className="posts-container">
+            {sortedPosts.map((post, i) => (
+              <PostTile
+                {...{ post }}
+                {...{ headers }}
+                {...{ getPosts }}
+                key={post._id + i}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    );
-  }
+      ) : (
+        <LoaderSpinner />
+      )}
+    </div>
+  );
 };
 
 export default Menu;
