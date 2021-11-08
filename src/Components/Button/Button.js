@@ -1,20 +1,17 @@
 import { motion, useCycle } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import "./Button.scss";
 
-const Button = ({ button, setOrder }) => {
+const Button = ({ button, handleToggle, id = null }) => {
   const [buttonState, cycleButtonState] = useCycle(...button.states);
   const [isOn, setIsOn] = useState(false);
 
   const handleClick = () => {
     setIsOn(!isOn);
     cycleButtonState();
+    handleToggle(buttonState, id);
   };
-
-  useEffect(() => {
-    setOrder(buttonState);
-  }, [buttonState, setOrder]);
 
   return (
     <motion.div

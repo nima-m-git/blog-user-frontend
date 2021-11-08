@@ -23,7 +23,7 @@ const FilterBar = ({ setFilter }) => {
         <option value="timeLastEdited">Edited</option>
         <option value="comments">Comments</option>
       </select>
-      <Button {...{ button }} {...{ setOrder }} />
+      <Button {...{ button }} handleToggle={setOrder} />
     </div>
   );
 };
